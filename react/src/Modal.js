@@ -36,12 +36,11 @@ export const Modal = () => {
         const filename = `${user.key}-${file.name}`;
 
         // TODO: STEP_7_UPLOAD_FILE
-        const downloadUrl = undefined;
-        // const { downloadUrl } = await uploadFile({
-        //   collection: "images",
-        //   data: file,
-        //   filename,
-        // });
+        const { downloadUrl } = await uploadFile({
+          collection: "images",
+          data: file,
+          filename,
+        });
 
         url = downloadUrl;
       }
@@ -49,15 +48,16 @@ export const Modal = () => {
       const key = nanoid();
 
       // TODO: STEP_5_SET_DOC
-      // await setDoc({
-      //   collection: "notes",
-      //   doc: {
-      //     key,
-      //     data: {
-      //       text: inputText,
-      //     },
-      //   },
-      // });
+      await setDoc({
+        collection: "notes",
+        doc: {
+          key,
+          data: {
+            text: inputText,
+            ...(url !== undefined && { url }),
+          },
+        },
+      });
 
       // TODO: STEP_8_ADD_REFERENCE
       // ...(url !== undefined && { url }),

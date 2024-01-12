@@ -7,12 +7,12 @@ import { useEffect } from "react";
 
 function App() {
   // TODO: STEP_1_INITIALIZATION
-  // useEffect(() => {
-  //   (async () =>
-  //     await initJuno({
-  //       satelliteId: "replace-satellite-id",
-  //     }))();
-  // }, []);
+  useEffect(() => {
+    (async () =>
+      await initJuno({
+        satelliteId: "mgaka-yyaaa-aaaal-adlnq-cai",
+      }))();
+  }, []);
 
   return (
     <>
